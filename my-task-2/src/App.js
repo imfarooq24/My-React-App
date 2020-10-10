@@ -30,6 +30,7 @@ class App extends Component {
     return (
 
       <div className="App">
+        <h2>Welcome to Task-2</h2>
         <input 
          type="text" 
          onChange={this.inputChangeHandler}
