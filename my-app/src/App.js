@@ -13,7 +13,6 @@ class App extends Component {
     show: false
   } 
   inputNameHandler = (event,id) =>{
-    
     const personIndex = this.state.person.findIndex(p =>{
       return p.id === id;
     });
@@ -39,13 +38,14 @@ class App extends Component {
   }
 
   render() {
-    // const myStyle = {
-    //   backgroundColor:'white',
-    //   font:'inherit',
-    //   border:'1px solid blue',
-    //   padding:'8px',
-    //   cursor:'pointer'
-    // };
+    const myStyle = {
+      backgroundColor:'green',
+      color:'white',
+      font:'inherit',
+      border:'1px solid blue',
+      padding:'8px',
+      cursor:'pointer'
+    };
     let person =null;
 
     if(this.state.show) {
@@ -63,7 +63,36 @@ class App extends Component {
         }
         </div>
         );
+         myStyle.backgroundColor='red'
       }
+          const classes = [];
+
+          if(this.state.person.length<3){
+            classes.push('red');
+          }
+          if(this.state.person.length<2){
+            classes.push('bold');
+          }
+
+    return (
+      <div id="root">
+        <div className="App">
+          <h1>Hey im a react app</h1>
+          <p className={classes.join(' ')}>This is really working</p>
+          <button 
+          style={myStyle}
+          onClick={this.ToggleNameHandler}>
+            Change Names
+          </button>
+          {person}
+        </div>
+      </div>
+    );  
+  }
+}
+
+export default App;
+
 
           /* <PersonComp name={this.state.person[0].name}
           age={this.state.person[0].age}
@@ -80,22 +109,7 @@ class App extends Component {
           <PersonComp name={this.state.person[3].name}
           age={this.state.person[3].age}
           inputName={this.inputNameHandler }/> */
-
-
-    return (
-      <div id="root">
-        
-        <div className="App">
-          <h1>Hey im a react app</h1>
-          <p>This is really working</p>
-          
-          <button 
-          // style={myStyle}
-          onClick={this.ToggleNameHandler}>
-            Change Names
-          </button>
-          {person}
-          {/* {
+          /*{ {
             this.state.show === true ?
             <div>
               <PersonComp name={this.state.person[0].name}
@@ -114,11 +128,4 @@ class App extends Component {
               age={this.state.person[3].age}
               inputName={this.inputNameHandler }/>
             </div> : null
-          } */}
-        </div>
-      </div>
-    );  
-  }
-}
-
-export default App;
+          } }*/
