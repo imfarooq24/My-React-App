@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PersonComp from './PersonComp/PersonComp';
 
+
 class App extends Component {
   state ={ 
     person: [
@@ -12,20 +13,20 @@ class App extends Component {
     ], 
     show: false
   } 
-  inputNameHandler = (event,id) =>{
+  inputNameHandler = (event,id) =>{ 
     const personIndex = this.state.person.findIndex(p =>{
       return p.id === id;
-    });
+      });
 
-    const findPerson = {
-      ...this.state.person[personIndex]
-    };
-     findPerson.name=event.target.value;
+      const findPerson = {
+        ...this.state.person[personIndex]
+      };
+      findPerson.name=event.target.value;
 
-     const person = [...this.state.person];
-     person[personIndex]=findPerson;
+      const person = [...this.state.person];
+      person[personIndex]=findPerson;
 
-     this.setState({person:person});
+      this.setState({person:person});
   }
   ToggleNameHandler = () => {
     const doesShow = this.state.show;
@@ -45,7 +46,7 @@ class App extends Component {
       border:'1px solid blue',
       padding:'8px',
       cursor:'pointer'
-    };
+      }
     let person =null;
 
     if(this.state.show) {
@@ -63,7 +64,7 @@ class App extends Component {
         }
         </div>
         );
-         myStyle.backgroundColor='red'
+         myStyle.backgroundColor='red';
       }
           const classes = [];
 
@@ -75,57 +76,20 @@ class App extends Component {
           }
 
     return (
-      <div id="root">
-        <div className="App">
-          <h1>Hey im a react app</h1>
-          <p className={classes.join(' ')}>This is really working</p>
-          <button 
-          style={myStyle}
-          onClick={this.ToggleNameHandler}>
-            Change Names
-          </button>
-          {person}
+        <div id="root">
+          <div className="App">
+            <h1>Hey im a react app</h1>
+            <p className={classes.join(' ')}>This is really working</p>
+            <button 
+              style={myStyle}
+              onClick={this.ToggleNameHandler}>
+                Change Names
+            </button>
+            {person}
+          </div>
         </div>
-      </div>
     );  
   }
 }
 
 export default App;
-
-
-          /* <PersonComp name={this.state.person[0].name}
-          age={this.state.person[0].age}
-          inputName={this.inputNameHandler }/>
-  
-          <PersonComp name={this.state.person[1].name}
-          age={this.state.person[1].age}
-          inputName={this.inputNameHandler }/>
-  
-          <PersonComp name={this.state.person[2].name}
-          inputName={this.inputNameHandler }
-          age={this.state.person[2].age}/>
-  
-          <PersonComp name={this.state.person[3].name}
-          age={this.state.person[3].age}
-          inputName={this.inputNameHandler }/> */
-          /*{ {
-            this.state.show === true ?
-            <div>
-              <PersonComp name={this.state.person[0].name}
-              age={this.state.person[0].age}
-              inputName={this.inputNameHandler }/>
-
-              <PersonComp name={this.state.person[1].name}
-              age={this.state.person[1].age}
-              inputName={this.inputNameHandler }/>
-
-              <PersonComp name={this.state.person[2].name}
-              inputName={this.inputNameHandler }
-              age={this.state.person[2].age}/>
-
-              <PersonComp name={this.state.person[3].name}
-              age={this.state.person[3].age}
-              inputName={this.inputNameHandler }/>
-            </div> : null
-          } }*/

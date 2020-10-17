@@ -1,6 +1,7 @@
 import React from 'react';
 import "./PersonComp.css";
 
+
 const PersonComp = (props) => {
     return (
         <div className="PersonComp">
